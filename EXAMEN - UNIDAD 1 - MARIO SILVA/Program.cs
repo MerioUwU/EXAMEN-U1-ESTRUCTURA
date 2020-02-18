@@ -11,6 +11,8 @@ namespace EXAMEN___UNIDAD_1___MARIO_SILVA
     {
         static void Main(string[] args)
         {
+            try 
+            {
                 Console.Title = "| EXAMEN UNIDAD 1 | MARIO SILVA |";
                 Console.WriteLine("Bienvenido al programa candelaria, seleccione con un número la cantidad de personas a las que le tocó el mono: ");
                 int monos = int.Parse(Console.ReadLine());
@@ -44,20 +46,20 @@ namespace EXAMEN___UNIDAD_1___MARIO_SILVA
                 Console.Clear();
                 int[] ttotales = new int[4];
                 int[] ptotales = new int[4];
-                int[,] precios = new int[4,3];
-                precios[0,0]=15;
-                precios[0,1]=13;
-                precios[0,2]=10;
-                precios[1,0]=12;
-                precios[1,1]=11;
-                precios[1,2]=9;
-                precios[2,0]=11;
-                precios[2,1]=10;
-                precios[2,2]=8;
-                precios[3,0]=18;
-                precios[3,1]=15;
-                precios[3,2]=13;
-                foreach(var item in razita) 
+                int[,] precios = new int[4, 3];
+                precios[0, 0] = 15;
+                precios[0, 1] = 13;
+                precios[0, 2] = 10;
+                precios[1, 0] = 12;
+                precios[1, 1] = 11;
+                precios[1, 2] = 9;
+                precios[2, 0] = 11;
+                precios[2, 1] = 10;
+                precios[2, 2] = 8;
+                precios[3, 0] = 18;
+                precios[3, 1] = 15;
+                precios[3, 2] = 13;
+                foreach (var item in razita)
                 {
                     if (item.Elección == 1)
                     {
@@ -80,15 +82,15 @@ namespace EXAMEN___UNIDAD_1___MARIO_SILVA
                 {
                     if (ttotales[i] < 11)
                     {
-                        ptotales[i] = ttotales[i] * precios[i,0];
+                        ptotales[i] = ttotales[i] * precios[i, 0];
                     }
                     else if (ttotales[i] > 10 && ttotales[i] < 21)
                     {
-                        ptotales[i] = ttotales[i] * precios[i,1];
+                        ptotales[i] = ttotales[i] * precios[i, 1];
                     }
                     else if (ttotales[i] > 20)
                     {
-                        ptotales[i] = ttotales[i] * precios[i,2];
+                        ptotales[i] = ttotales[i] * precios[i, 2];
                     }
                 }
                 foreach (var item in razita)
@@ -106,6 +108,11 @@ namespace EXAMEN___UNIDAD_1___MARIO_SILVA
                 int Dividido = CostoTotal / monos;
                 Console.WriteLine("El total a pagar por todo es {0}, dividido entre los {1} monos es de {2}\nPresione cualquier tecla para salir", CostoTotal, monos, Dividido);
                 Console.ReadKey();
+            }
+            catch(Exception ex)
+            {
+                NoJala(ex);
+            }
         }
         static void NoJala(Exception ex)
         {
